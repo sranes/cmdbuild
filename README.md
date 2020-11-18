@@ -47,7 +47,7 @@
 		  <version>1.3.2</version>
 		</dependency>
 	10. Make the below changes as cmdbuild clustering packages are missing required for shark
-		a. Src/test/pom.cml
+		a. Src/test/pom.xml
 			i. Remove entry for shark module
 		b. Src/shark/pom.xml
 Remove enntry for extension-test
