@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+	
+    <parent>
+        <groupId>org.cmdbuild</groupId>
+        <artifactId>cmdbuild-parent</artifactId>
+        <version>${revision}</version>
+        <relativePath>parent</relativePath>
+    </parent>
+	
+    <artifactId>cmdbuild-main</artifactId>
+	
+    <packaging>pom</packaging>
+		
+    <modules>
+		
+        <module>parent</module>
+		
+        <module>auth</module>
+		
+        <module>bim</module>
+		
+        <module>gis</module>
+
+        <module>report</module>
+
+        <module>core</module>
+		
+        <module>widget</module>
+		
+        <module>dao</module>
+
+        <module>cql</module>
+
+        <module>dms</module>
+
+        <module>jobs</module>
+		
+        <module>services/rest</module>		
+        <module>services/soap</module>
+		
+        <module>etl</module>
+		
+        <module>river</module>		
+        <module>shark</module>		
+        <module>workflow</module>
+		
+
+        <module>cli</module>
+        <module>ui</module>
+		
+        <module>cmdbuild</module>
+
+        <module>pocket</module>
+		
+        <module>client/soap</module>
+        <module>client/rest</module>
+
+        <module>legacy/ws-client</module>
+        <module>legacy/data</module>
+		
+        <module>utils/maven</module>
+        <module>utils/tomcatmanager</module>
+        <module>utils/postgres</module>
+        <module>utils/lang</module>
+        <module>utils/script</module>
+        <module>utils/io</module>
+        <module>utils/privileges</module>
+        <module>utils/crypto</module>
+        <module>utils/json</module>
+        <module>utils/test</module>
+        <module>utils/sql</module>
+        <module>utils/quick</module>
+        <module>utils/sked</module>
+        <module>utils/ws3</module>
+		<!--
+        <module>utils/bugreportcollector</module>
+        <module>utils/alfresco-migrator</module>
+        -->
+		<module>utils/ifc</module>
+        <module>utils/cad</module>
+        <module>utils/proxy</module>
+		
+        <module>plugins/example</module>
+		
+        <module>test</module>
+        
+        
+    </modules>
+	
+</project>

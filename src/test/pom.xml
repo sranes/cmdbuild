@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.cmdbuild</groupId>
+        <artifactId>cmdbuild-parent</artifactId>
+        <version>${revision}</version>
+        <relativePath>../parent</relativePath>
+    </parent>
+	
+    <artifactId>cmdbuild-test-main</artifactId>
+    <packaging>pom</packaging>
+	
+    <description>
+        These projects contain tests that need a complex setup to run, and
+        perhaps also external running services like database servers.
+    </description>
+	
+    <modules>
+        <module>framework</module>
+        <module>core</module>
+        <module>importdb</module>
+        <module>wfmigration</module>
+        <module>rest</module>
+		<!--
+        <module>shark</module>
+		-->
+        <module>web</module>
+        <module>web2</module>
+        <module>pocket</module>
+        <module>ui</module>
+        <module>cluster</module>
+        <module>dms</module>
+        <module>geoserver</module>
+        <module>bimserver</module>
+        <module>performance</module>
+    </modules>
+	
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-zip</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeArtifactIds>cmdbuild-dao-sql</includeArtifactIds>
+                            <stripVersion>true</stripVersion>
+                            <outputDirectory>${project.build.directory}/classes/</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>		
+    </build>
+</project>

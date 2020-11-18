@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.cmdbuild</groupId>
+        <artifactId>cmdbuild-parent</artifactId>
+        <version>${revision}</version>
+        <relativePath>../parent</relativePath>
+    </parent>
+    <artifactId>cmdbuild</artifactId>
+    <packaging>war</packaging>
+
+    <properties></properties>
+
+    <dependencies>  
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-core-everything</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type> 
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-services-rest-v3</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-services-rest-v2</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-services-soap</artifactId>
+            <version>${project.version}</version>
+        </dependency> 
+		
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-utils-crypto</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-utils-ws3</artifactId>
+            <version>${project.version}</version>
+        </dependency> 
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+		
+        <dependency>
+            <groupId>com.google.classpath-explorer</groupId>
+            <artifactId>classpath-explorer</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- Apache CXF dependencies -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-ws-security</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.geronimo.javamail</groupId>
+                    <artifactId>geronimo-javamail_1.4_mail</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.xml.soap</groupId>
+                    <artifactId>javax.xml.soap-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-wsdl</artifactId>
+        </dependency>
+
+        <!-- Spring Dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId><!-- used by spring security -->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId> 
+        </dependency>
+        <dependency>
+            <groupId>org.apache.bcel</groupId>
+            <artifactId>bcel</artifactId>
+            <version>5.2</version>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jakarta-regexp</artifactId>
+                    <groupId>jakarta-regexp</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+            <version>2.6</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.opensaml</groupId>
+            <artifactId>opensaml1</artifactId>
+            <version>1.1</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency> <!-- To use XPath to parse GeoServer XML REST messages -->
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.1.1</version>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>xerces</groupId>
+                    <artifactId>xercesImpl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+        </dependency>
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-ext</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.logback-extensions</groupId>
+            <artifactId>logback-ext-spring</artifactId>
+        </dependency>
+		
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>		
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-dao-sql</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency> 
+		
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-ui</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>	
+		
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+        </dependency>
+		
+        <dependency>
+            <groupId>org.cmdbuild</groupId>
+            <artifactId>cmdbuild-cli</artifactId>
+            <version>${project.version}</version> 
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cmdbuild-utils-json</artifactId>
+            <version>${project.version}</version>
+        </dependency> 
+		
+        <dependency> <!-- TODO: check websocket dependencies -->
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-messaging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.tyrus</groupId>
+            <artifactId>tyrus-client</artifactId>
+            <version>1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.tyrus</groupId>
+            <artifactId>tyrus-container-grizzly-client</artifactId>
+            <version>1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-artifact</artifactId> 
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>cmdbuild</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-sql</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>cmdbuild-dao-sql</artifactId>
+                                    <type>zip</type>
+                                    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.postgresql</groupId>
+                                    <artifactId>postgresql</artifactId>
+                                    <type>jar</type>
+                                    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/lib_ext</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.tomcat.embed</groupId>
+                                    <artifactId>tomcat-embed-core</artifactId> 
+                                    <type>jar</type>
+                                    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/lib_ext</outputDirectory> 
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.tomcat.embed</groupId>
+                                    <artifactId>tomcat-embed-websocket</artifactId> 
+                                    <type>jar</type>
+                                    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/lib_ext</outputDirectory> 
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.tomcat.embed</groupId>
+                                    <artifactId>tomcat-embed-el</artifactId> 
+                                    <type>jar</type>
+                                    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/lib_ext</outputDirectory> 
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.tomcat.embed</groupId>
+                                    <artifactId>tomcat-embed-jasper</artifactId> 
+                                    <type>jar</type>
+                                    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/lib_ext</outputDirectory> 
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Implementation-Changeset>${git.commit.id}</Implementation-Changeset>
+                            <CMDBuild-Version>${revision}</CMDBuild-Version>
+                            <Main-Class>org.cmdbuild.webapp.cli.Main</Main-Class>
+                        </manifestEntries>
+                    </archive>
+                    <webResources>
+                        <resource>
+                            <directory>target/classes</directory>
+                            <includes>
+                                <include>**/Main.class</include>
+                            </includes>
+                        </resource>
+                        <resource>
+                            <directory>../</directory>
+                            <includes>
+                                <include>COPYING*</include>
+                                <include>CHANGELOG*</include>
+                                <include>README*</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-war</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <packagingExcludes>WEB-INF/lib/postgresql-*.jar,WEB-INF/lib/tomcat-embed-*.jar</packagingExcludes>
+                        </configuration>
+                        <goals>
+                            <goal>war</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmaven</groupId>
+                <artifactId>groovy-maven-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <id>cm-custom-config</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+
+							<source>
+								String baseDir = new File(project.basedir.absolutePath).getAbsolutePath();
+
+								File file = new File(baseDir+"/target/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/config/default_config.properties");
+                                file.parentFile.mkdirs()
+                                file.append '\n'
+                                System.properties.each{ k, v ->  if ( k.startsWith('org.cmdbuild.build.config.') ) { file.append k.replaceFirst('org.cmdbuild.build.config.','org.cmdbuild.') + '=' + v + '\n' }}
+                                file.append '\n'
+                            </source>
+<!--						
+                            <source>
+                                File file = new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/config/default_config.properties");
+                                file.parentFile.mkdirs()
+                                file.append '\n'
+                                System.properties.each{ k, v ->  if ( k.startsWith('org.cmdbuild.build.config.') ) { file.append k.replaceFirst('org.cmdbuild.build.config.','org.cmdbuild.') + '=' + v + '\n' }}
+                                file.append '\n'
+                            </source>
+-->                        
+						</configuration>
+                    </execution>  
+                    <execution>
+                        <id>cm-info</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration> 
+							<source>
+								String baseDir = new File(project.basedir.absolutePath).getAbsolutePath();
+
+                                File file = new File(baseDir+"/target/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/version.properties");
+                                file.parentFile.mkdirs()
+                                file.append '\n'
+                                file.append 'org.cmdbuild.version=${revision}'
+                                file.append '\n'
+                                file.append 'org.cmdbuild.vert.version=${cmdbuild.vert.version}'
+                                file.append '\n'
+                            </source>
+						<!--
+                            <source>
+                                File file = new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/version.properties");
+                                file.parentFile.mkdirs()
+                                file.append '\n'
+                                file.append 'org.cmdbuild.version=${revision}'
+                                file.append '\n'
+                                file.append 'org.cmdbuild.vert.version=${cmdbuild.vert.version}'
+                                file.append '\n'
+                            </source>
+							-->
+                        </configuration>
+                    </execution>
+<!--					
+                    <execution> 
+                        <id>cm-git-issues</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration> 
+	
+                            <source>
+                                def sout = new StringBuilder(), serr = new StringBuilder()
+                                def proc = ["/bin/bash","${project.basedir}/utils/export_git_issues.sh"].execute()
+                                proc.consumeProcessOutput(sout, serr)
+                                proc.waitFor()
+                                
+                                File file = new File("${project.build.directory}/${project.build.finalName}/WEB-INF/classes/org/cmdbuild/fixed_issues_list.txt");
+                                file.parentFile.mkdirs()
+                                file.append sout 
+                            </source>
+
+                        </configuration>
+                    </execution>
+					-->
+                </executions> 
+            </plugin>
+            <plugin>  
+                <groupId>org.codehaus.mojo</groupId>  
+                <artifactId>exec-maven-plugin</artifactId>  
+                <version>1.4.0</version>  
+                <executions>  
+                    <execution>  
+                        <id>run-cli-packager</id>
+                        <phase>package</phase>  
+                        <goals>  
+                            <goal>java</goal>  
+                        </goals>  
+                        <configuration>  
+                            <mainClass>org.cmdbuild.utils.cli.packager.CliPackagerUtils</mainClass>  
+                            <arguments>  
+                                <argument>${project.build.directory}/${project.build.finalName}.war</argument>  
+                                <argument>${project.build.directory}/cmdbuild.sh</argument>  
+                            </arguments>  
+                        </configuration>  
+                    </execution>    
+                </executions>  
+            </plugin>    
+        </plugins>
+    </build>	
+	
+</project>
