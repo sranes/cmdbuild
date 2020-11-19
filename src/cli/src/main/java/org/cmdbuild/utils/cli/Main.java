@@ -20,7 +20,7 @@ import org.apache.commons.lang3.time.StopWatch;
 import org.cmdbuild.debuginfo.BuildInfo;
 import static org.cmdbuild.debuginfo.BuildInfoUtils.loadBuildInfoFromWarDirSafe;
 import static org.cmdbuild.debuginfo.BuildInfoUtils.loadBuildInfoFromWarFileSafe;
-//import org.cmdbuild.utils.cli.commands.AlfrescoCommandRunner;
+import org.cmdbuild.utils.cli.commands.AlfrescoCommandRunner;
 import org.cmdbuild.utils.cli.commands.BenchmarkCommandRunner;
 import org.cmdbuild.utils.cli.commands.BimCommandRunner;
 import org.slf4j.Logger;
@@ -72,7 +72,8 @@ public class Main {
             new GuiCommandRunner(),
             new ToolsCommandRunner(),
             new SelftestCommandRunner(),
-            new PocketCommandRunner());
+            new PocketCommandRunner(),
+			new AlfrescoCommandRunner());
 
     private void runMain(String[] args) throws Exception {
         enableDefaultLogging();
