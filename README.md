@@ -3,6 +3,7 @@
 # Prerequisite
 1. Install Sencha CMD version 6.2.2
 2. Add _JAVA_OPTIONS environment variable with value -Xms512m -Xmx2048m
+3. Uncompress and install the dependencies by executing install-artifacts file
 	
 
 # Changes made for Build
