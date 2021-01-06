@@ -26,8 +26,9 @@
 		a. Updated the file path to static path for RolePrivilege and RolePrivilegeAuthority
 		b. Updated groovy maven plugin to 2.1.1 (may not be necessary) 
 		
-	4. Remove reference to Alfresco Migrator as the source is missing from thedistribution
+	4. Remove reference to Alfresco Migrator as the source is missing from the distribution
 		a. Update cli\src\main\java\org\cmdbuild\utils\cli\commands\AlfrescoCommandRunner.java to remove reference to missing classes
+		b. update src/cli/pom.xml to remove reference to cmdbuild-utils-alfresco-migrator
 	
 	5. Src/ui/pom.xml
 		a. Updated maven-war-plugin version to 3.3.1 (from 2.6)
